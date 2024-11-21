@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* desing calcolatrice*/
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .calcolatrice {
+            display: inline-block;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .schermo {
+            width: 200px;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        button {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            font-size: 18px;
+        }
+
+        .zero, .uguale {
+            width: 95px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calcolatrice"> <!-- schermo calcoltric3 che vede l'utente piu bottoni e operazioni-->
+        <input type="text" class="schermo" id="schermo" disabled>
+        <br>
+        <button onclick="numeri('1')">1</button>
+        <button onclick="numeri('2')">2</button>
+        <button onclick="numeri('3')">3</button>
+        <button onclick="operatore('+')">+</button>
+        <br>
+        <button onclick="numeri('4')">4</button>
+        <button onclick="numeri('5')">5</button>
+        <button onclick="numeri('6')">6</button>
+        <button onclick="operatore('-')">-</button>
+        <br>
+        <button onclick="numeri('7')">7</button>
+        <button onclick="numeri('8')">8</button>
+        <button onclick="numeri('9')">9</button>
+        <button onclick="operatore('*')">*</button>
+        <br>
+        <button class="zero" onclick="numeri('0')">0</button>
+        <button onclick="operatore('/')">/</button>
+        <br>
+        <button class="uguale" onclick="calcola()">=</button>
+    </div>
+    <script>
+        let espressione = '';
+        function numeri(numero) {
+            espressione += numero;
+            document.getElementById('schermo').value = espressione; 
+        }
+
+        function operatore(operatore) {
+            espressione += operatore;
+            document.getElementById('schermo').value = espressione;
+            
+        }
+        function calcola() {
+            espressione = eval(espressione).toString();
+            document.getElementById('schermo').value = espressione; 
+        }
+    </script>
+</body>
+</html>
